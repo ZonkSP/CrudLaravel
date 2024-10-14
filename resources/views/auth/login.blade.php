@@ -38,7 +38,11 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
+           
+            <x-primary-button class="ms-3">
+                <a href="{{ route('register') }}" class="btn btn-primary">Register New User</a>
 
+            </x-primary-button>
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-950 dark:text-gray-950 leading-tight">
-            {{ __('Usuarios') }}
+            {{ __('Materias') }}
         </h2>
     </x-slot>
 
@@ -10,31 +10,22 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-950 dark:text-gray-950">
                     <div class="container">
-                        <a href="{{ route('usuarios.create') }}" class="btn btn-primary mb-3">Agregar Usuario</a>
+                        <a href="{{ route('materias.create') }}" class="btn btn-primary mb-3">Agregar Materia</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Apellido Paterno</th>
-                                    <th>Apellido Materno</th>
-                                    <th>Email</th>
-                                    <th>Teléfono</th>
-                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($usuarios as $usuario)
+                                @foreach($materias as $materia)
                                 <tr>
-                                    <td>{{ $usuario->id }}</td>
-                                    <td>{{ $usuario->nombre }}</td>
-                                    <td>{{ $usuario->apellido_p }}</td>
-                                    <td>{{ $usuario->apellido_m }}</td>
-                                    <td>{{ $usuario->email }}</td>
-                                    <td>{{ $usuario->telefono }}</td>
+                                    <td>{{ $materia->id }}</td>
+                                    <td>{{ $materia->nombre }}</td>
                                     <td>
-                                        <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-warning">Editar</a>
-                                        <form action="{{ route('usuarios.destroy', $usuario->id) }}" method="POST" style="display:inline;">
+                                        <a href="{{ route('materias.edit', $materia->id) }}" class="btn btn-warning">Editar</a>
+                                        <form action="{{ route('materias.destroy', $materia->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Eliminar</button>

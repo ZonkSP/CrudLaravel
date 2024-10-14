@@ -2,12 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\MateriaController;
 use Illuminate\Support\Facades\Route;
 
-//Se cambia la ruta para que muestre la pagina de usuarios
-Route::get('/', [UsuarioController::class, 'index'])->name('home');
+//Se cambia la ruta para que muestre la pagina de usuariosRoute::get('/', [UsuarioController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -15,6 +15,7 @@ Route::get('/dashboard', function () {
 // Rutas para el CRUD de usuarios
 Route::resource('usuarios', UsuarioController::class);
 // Esto crea automáticamente las rutas para index, create, store, edit, update, y destroy
+Route::resource('materias', MateriaController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
